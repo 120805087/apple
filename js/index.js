@@ -1,8 +1,12 @@
 $(function(){
     /*下拉菜单*/
-    $(".muen").click(function(){
-       $(".small-erji").fadeToggle();
-    })
+            $(".muen").click(function(){
+                $("body").eq(0).toggleClass("scrool");
+                var clientW = $(window).width();
+                var clientY = $(window).height();
+                $(".small-erji").css({width:clientW,height:clientY});
+                $(".small-erji").fadeToggle();
+            })
 
     /*轮播图*/
     var currentNum = 0;
@@ -79,6 +83,14 @@ $(function(){
     }
     var t1 = setInterval(jishi,100);
     var t = setInterval(move,3000);
+    $(window).blur(function(){
+        clearInterval(t1);
+        clearInterval(t);
+    })
+    $(window).focus(function(){
+        t1 = setInterval(jishi,100);
+        t = setInterval(move,3000);
+    })
 
     /*footer效果*/
     setInterval(function(){
