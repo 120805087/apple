@@ -45,18 +45,41 @@ $(function(){
         stop();
     })
     $(".leftBtn").click(function(){
+        /*暂停定时器*/
+        clearInterval(t1);
+        clearInterval(t);
+
+        /*按钮发生变化*/
+        $(".lunbo-item").find(".progess").css("width",0);
+        $(".lunbo-item").eq(nextNum).find(".progess").css("width","100%");
+
         nextNum++;
         if(nextNum==$(".item").length){
             nextNum = 0;
         }
-        stop();
+        $(".item").eq(currentNum).animate({width:"80%",height:"80%"}).css("zIndex",0);
+        $(".item").eq(nextNum).animate({left:0,width:"100%",height:"100%"},function(){
+            $(".item").eq(currentNum).css({left:"100%",width:"100%",height:"100%"});
+            currentNum = nextNum;
+        }).css("zIndex",1);
     })
     $(".rightBtn").click(function(){
+        /*暂停定时器*/
+        clearInterval(t1);
+        clearInterval(t);
+
+        /*按钮发生变化*/
+        $(".lunbo-item").find(".progess").css("width",0);
+        $(".lunbo-item").eq(nextNum).find(".progess").css("width","100%");
+
         nextNum--;
         if(nextNum==-1){
             nextNum =$(".item").length-1;
         }
-        stop();
+        $(".item").eq(currentNum).animate({left:"100%"}).css("zIndex",1);
+        $(".item").eq(nextNum).css({left:0,width:"80%",height:"80%"}).animate({width:"100%",height:"100%"},function(){
+            currentNum = nextNum;
+        }).css("zIndex",0);
     })
     function stop(){
         /*暂停定时器*/
