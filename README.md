@@ -1,5 +1,3 @@
-GitHub Gist: d951bbf4a2490f96ae18f0e8b2153c
+GitHub Token: 5e6701e9746719fc0ec9f18312ebd3c9093c8850
 
-
-token
-7086bd9ee256781844fdb4047fc7d219fd98bc6c
+GitHub Gist: cbd2d8ac7dfb2b44ad255adc39578a01
